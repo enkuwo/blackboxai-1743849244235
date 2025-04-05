@@ -1,0 +1,28 @@
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; <span id="year"></span> enkuwo. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/enkuwo" class="hover:text-blue-400 transition" aria-label="GitHub">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="hover:text-blue-400 transition" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="hover:text-blue-400 transition" aria-label="Twitter">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="https://www.instagram.com/kuwillw/" class="hover:text-blue-400 transition" aria-label="Instagram">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
