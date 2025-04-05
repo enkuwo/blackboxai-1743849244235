@@ -5,23 +5,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Base Reset & Dark Mode Foundation */
-body.dark {
-    background-color: #0d1117;
-    color: #e6edf3;
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-}
-
-p {
-    color: #c9d1d9;
-}
-
 /* Enhanced scroll animations */
 section, .animate-on-scroll {
     opacity: 0;
@@ -37,37 +20,16 @@ section.visible, .animate-on-scroll.visible {
 /* Staggered animations for project cards */
 .project-card {
     transition-delay: calc(var(--order) * 0.1s);
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-/* Project card hover effect */
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Custom button styles */
 .btn-primary {
-    background-color: #2563eb;
-    color: #ffffff;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
-    background-color: #1e40af;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile menu animation */
@@ -86,33 +48,28 @@ section.visible, .animate-on-scroll.visible {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #111827;
-    color: #fff;
-    border-radius: 50%;
-    padding: 10px;
     opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
 }
 
 .back-to-top.visible {
     opacity: 1;
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Form input focus styles */
-.form-input {
-    background-color: #0f172a;
-    border: 1px solid #334155;
-    color: #f1f5f9;
-    padding: 10px;
-    border-radius: 6px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
 .form-input:focus {
     border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 /* Custom scrollbar */
@@ -121,11 +78,11 @@ section.visible, .animate-on-scroll.visible {
 }
 
 ::-webkit-scrollbar-track {
-    background: #0d1117;
+    background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2e3440;
+    background: #2a2d37;
     border-radius: 4px;
 }
 
@@ -135,23 +92,28 @@ section.visible, .animate-on-scroll.visible {
 
 /* Dark Theme Variables */
 :root {
-    --body-bg: #0d1117;
-    --text-light: #e6edf3;
-    --accent-blue: #1e40af;
-    --hover-opacity: 0.9;
+  --body-bg: #1a1a1a;
+  --text-light: #f5f5f5;
+  --accent-blue: #2e3440;
+  --hover-opacity: 0.9;
 }
 
-/* Override utility classes if using Tailwind or similar */
+/* Dark Theme Base Styles */
+body.dark {
+  background-color: var(--body-bg);
+  color: var(--text-light);
+}
+
 .dark .bg-white {
-    background-color: #161b22;
+  background-color: #e5e7eb;;
 }
 
 .dark .text-gray-800 {
-    color: #c9d1d9;
+  color: #e5e7eb;
 }
 
-/* Fade in animation */
+/* Enhanced Dark Mode Animations */
 @keyframes fadeInDark {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
