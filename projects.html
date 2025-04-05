@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Projects | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <main class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-12">My Projects</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project 3 - Weather Dashboard -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1601134467661-3d775b999c8b?w=500&auto=format" alt="Weather Dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Weather Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time weather information with 5-day forecast, location detection, and interactive charts.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Weather API</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Chart.js</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Local Storage</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://enkuwo.github.io/projectweb/" target="_blank" class="text-blue-600 hover:text-blue-800">Live Demo</a>
+                            <a href="https://github.com/enkuwo/projectweb" target="_blank" class="text-gray-600 hover:text-gray-800">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
+    <script>
+        // Load header and footer components
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
