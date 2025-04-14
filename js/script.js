@@ -1,5 +1,5 @@
 // DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Intersection Observer for section animations
     const sections = document.querySelectorAll('section');
     const observerOptions = {
@@ -18,21 +18,43 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-    }
+    //formspree
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('form-status');
 
-    // Mobile menu toggle (will be used with header component)
+if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const data = new FormData(contactForm);
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { Accept: 'application/json' }
+            });
+
+            if (response.ok) {
+                formStatus.textContent = 'Thanks! Your message has been sent.';
+                formStatus.classList.remove('text-red-500');
+                formStatus.classList.add('text-green-500');
+                contactForm.reset();
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            formStatus.textContent = 'Oops! Something went wrong.';
+            formStatus.classList.remove('text-green-500');
+            formStatus.classList.add('text-red-500');
+        }
+    });
+}
+
+    // Mobile menu toggle
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
+        mobileMenuButton.addEventListener('click', function () {
             mobileMenu.classList.toggle('open');
         });
     }
@@ -40,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Back to top button
     const backToTopButton = document.createElement('button');
     backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopButton.className = 'back-to-top bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition';
+    backToTopButton.className = 'back-to-top bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition fixed bottom-6 right-6 opacity-0 pointer-events-none';
     backToTopButton.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(backToTopButton);
 
@@ -53,15 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
+            backToTopButton.classList.add('opacity-100');
+            backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
         } else {
-            backToTopButton.classList.remove('visible');
+            backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+            backToTopButton.classList.remove('opacity-100');
         }
     });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -72,4 +96,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
 });

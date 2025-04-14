@@ -155,3 +155,22 @@ section.visible, .animate-on-scroll.visible {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+@keyframes logoFadeSlide {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-logo {
+    animation: logoFadeSlide 1s ease-out forwards;
+  }
+  .animate-logo:hover {
+    color: #2563eb; /* darker blue */
+    transform: scale(1.05);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
